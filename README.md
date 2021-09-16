@@ -2,7 +2,7 @@
 
 ![Scenic Landscape](https://user-images.githubusercontent.com/152152/49344534-a8817480-f646-11e8-8431-3d95d349c070.png)
 
-[![Build Status](https://travis-ci.org/scenic-views/scenic.svg?branch=master)](https://travis-ci.org/scenic-views/scenic)
+[![Build Status](https://github.com/scenic-views/scenic/workflows/CI/badge.svg)](https://github.com/scenic-views/scenic/actions?query=workflow%3ACI+branch%3Amaster)
 [![Documentation Quality](http://inch-ci.org/github/scenic-views/scenic.svg?branch=master)](http://inch-ci.org/github/scenic-views/scenic)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
@@ -94,7 +94,7 @@ when some of those views may be materialized and take a long time to recreate.
 
 You can use `replace_view` to generate a CREATE OR REPLACE VIEW SQL statement.
 
-See postgresql documentation on how this works:
+See Postgres documentation on how this works:
 http://www.postgresql.org/docs/current/static/sql-createview.html
 
 To start replacing a view run the generator like for a regular change:
@@ -135,7 +135,7 @@ ActiveRecord or ARel queries. As far as ActiveRecord is concerned, a view is
 no different than a table.
 
 ```ruby
-class SearchResult < ActiveRecord::Base
+class SearchResult < ApplicationRecord
   belongs_to :searchable, polymorphic: true
 
   # this isn't strictly necessary, but it will prevent
@@ -218,7 +218,7 @@ You can get around these issues by setting the primary key column on your Rails
 model like so:
 
 ```ruby
-class People < ActiveRecord::Base
+class People < ApplicationRecord
   self.primary_key = :my_unique_identifier_field
 end
 ```
@@ -255,12 +255,15 @@ meet your needs:
 * [scenic_sqlite_adapter](https://github.com/pdebelak/scenic_sqlite_adapter)
 * [scenic-mysql_adapter](https://github.com/EmpaticoOrg/scenic-mysql_adapter)
 * [scenic-sqlserver-adapter](https://github.com/ClickMechanic/scenic_sqlserver_adapter)
-* [scenic-oracle_enhanced_adapter](https://github.com/PMACS/scenic_oracle_enhanced_adapter)
+* [scenic-oracle_adapter](https://github.com/cdinger/scenic-oracle_adapter)
+
+Please note that the maintainers of Scenic make no assertions about the
+quality or security of the above adapters.
 
 ## About
 
-Scenic is maintained by [Derek Prior], [Caleb Thompson], and you, our
+Scenic is maintained by [Derek Prior], [Caleb Hearth], and you, our
 contributors.
 
 [Derek Prior]: http://prioritized.net
-[Caleb Thompson]: http://calebthompson.io
+[Caleb Hearth]: http://calebhearth.com
